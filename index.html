@@ -301,6 +301,33 @@
             left: 50%;
             animation-delay: -10s;
         }
+        
+        .calendar-btn {
+            background: #4285f4;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .calendar-btn:hover {
+            background: #2b6cd4;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+        }
+        
+        .activity-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
     </style>
 </head>
 <body>
@@ -324,7 +351,12 @@
                 <div class="activity">
                     <div class="time">6:00 PM</div>
                     <div class="description">
-                        <span class="location">🛬 Arrival at Calgary</span><br>
+                        <div class="activity-actions">
+                            <span class="location">🛬 Arrival at Calgary</span>
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Arrival at Calgary', '2025-06-27T18:00:00', '2025-06-27T19:00:00', 'Calgary International Airport', 'Pick up 6-seater SUV and collect everyone from airport')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
                         <span class="note">Pick up 6-seater SUV and collect everyone from airport</span>
                     </div>
                 </div>
@@ -339,39 +371,102 @@
             <div class="activities">
                 <div class="activity">
                     <div class="time">8:00 AM</div>
-                    <div class="description">🚗 Start from Calgary</div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span>🚗 Start from Calgary</span>
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Start from Calgary', '2025-06-28T08:00:00', '2025-06-28T09:00:00', 'Calgary', 'Departure for Lake Louise')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="activity">
                     <div class="time">10:00 AM</div>
-                    <div class="description"><span class="location">🚌 Park and Ride</span> - Lake Louise and Moraine Lake Bus Shuttle</div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span class="location">🚌 Park and Ride</span> - Lake Louise and Moraine Lake Bus Shuttle
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Park and Ride - Lake Louise Shuttle', '2025-06-28T10:00:00', '2025-06-28T11:00:00', 'Lake Louise', 'Park and Ride - Lake Louise and Moraine Lake Bus Shuttle')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="activity">
                     <div class="time">11:00 AM</div>
-                    <div class="description"><span class="location">💎 <a href="https://www.alltrails.com/trail/canada/alberta/rockpile" target="_blank" rel="noopener noreferrer">Moraine Lake</a></span> - Rockpile Trail hiking</div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span class="location">💎 <a href="https://www.alltrails.com/trail/canada/alberta/rockpile" target="_blank" rel="noopener noreferrer">Moraine Lake</a></span> - Rockpile Trail hiking
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Moraine Lake - Rockpile Trail', '2025-06-28T11:00:00', '2025-06-28T13:00:00', 'Moraine Lake', 'Rockpile Trail hiking at Moraine Lake')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="activity">
                     <div class="time">1:00 PM</div>
-                    <div class="description"><span class="location">🏔️ <a href="https://www.alltrails.com/trail/canada/alberta/the-big-beehive-trail" target="_blank" rel="noopener noreferrer">Lake Louise</a></span> - The Big Beehive Trail</div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span class="location">🏔️ <a href="https://www.alltrails.com/trail/canada/alberta/the-big-beehive-trail" target="_blank" rel="noopener noreferrer">Lake Louise</a></span> - The Big Beehive Trail
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Lake Louise - Big Beehive Trail', '2025-06-28T13:00:00', '2025-06-28T18:00:00', 'Lake Louise', 'The Big Beehive Trail hiking at Lake Louise')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="activity">
                     <div class="time">6:00 PM</div>
-                    <div class="description">🚌 Last shuttle to parking lot</div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span>🚌 Last shuttle to parking lot</span>
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Last Shuttle to Parking', '2025-06-28T18:00:00', '2025-06-28T18:30:00', 'Lake Louise', 'Last shuttle to parking lot')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="activity">
                     <div class="time">6:30 PM</div>
-                    <div class="description">☕ Break and snacks</div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span>☕ Break and snacks</span>
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Break and Snacks', '2025-06-28T18:30:00', '2025-06-28T19:30:00', 'Lake Louise', 'Take a break and have snacks')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="activity">
                     <div class="time">7:30 PM</div>
-                    <div class="description">🚗 Drive to Jasper</div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span>🚗 Drive to Jasper</span>
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Drive to Jasper', '2025-06-28T19:30:00', '2025-06-28T22:30:00', 'Lake Louise to Jasper', 'Drive from Lake Louise to Jasper')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="activity">
                     <div class="time">10:30 PM</div>
-                    <div class="description">🏞️ Arrival at Jasper</div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span>🏞️ Arrival at Jasper</span>
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Arrival at Jasper', '2025-06-28T22:30:00', '2025-06-28T23:00:00', 'Jasper', 'Arrival at Jasper')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="activity">
                     <div class="time">11:00 PM</div>
-                    <div class="description">🏨 Check into <span class="location"><a href="https://surl.gd/cnjxlh" target="_blank" rel="noopener noreferrer">Jasper Downtown Hostel</a></span></div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span>🏨 Check into <span class="location"><a href="https://surl.gd/cnjxlh" target="_blank" rel="noopener noreferrer">Jasper Downtown Hostel</a></span></span>
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Check-in at Jasper Downtown Hostel', '2025-06-28T23:00:00', '2025-06-29T00:00:00', 'Jasper Downtown Hostel', 'Check-in at Jasper Downtown Hostel')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -384,43 +479,114 @@
             <div class="activities">
                 <div class="activity">
                     <div class="time">10:00 AM</div>
-                    <div class="description">🥞 Breakfast in town</div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span>🥞 Breakfast in town</span>
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Breakfast in Jasper', '2025-06-29T10:00:00', '2025-06-29T11:00:00', 'Jasper', 'Breakfast in Jasper town')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="activity">
                     <div class="time">11:00 AM</div>
-                    <div class="description">🏘️ Explore charming Jasper town</div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span>🏘️ Explore charming Jasper town</span>
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Explore Jasper Town', '2025-06-29T11:00:00', '2025-06-29T12:00:00', 'Jasper', 'Explore charming Jasper town')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="activity">
                     <div class="time">12:00 PM</div>
-                    <div class="description"><span class="location">🌊 <a href="https://www.alltrails.com/trail/canada/alberta/maligne-canyon" target="_blank" rel="noopener noreferrer">Maligne Canyon</a></span> exploration</div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span class="location">🌊 <a href="https://www.alltrails.com/trail/canada/alberta/maligne-canyon" target="_blank" rel="noopener noreferrer">Maligne Canyon</a></span> exploration
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Maligne Canyon Exploration', '2025-06-29T12:00:00', '2025-06-29T13:30:00', 'Maligne Canyon', 'Maligne Canyon exploration')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="activity">
                     <div class="time">2:00 PM</div>
-                    <div class="description"><span class="location">💧 <a href="https://www.alltrails.com/trail/canada/alberta/athabasca-falls" target="_blank" rel="noopener noreferrer">Athabasca Falls</a></span> visit</div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span class="location">💧 <a href="https://www.alltrails.com/trail/canada/alberta/athabasca-falls" target="_blank" rel="noopener noreferrer">Athabasca Falls</a></span> visit
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Athabasca Falls Visit', '2025-06-29T14:00:00', '2025-06-29T14:30:00', 'Athabasca Falls', 'Visit to Athabasca Falls')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="activity">
                     <div class="time">2:30 PM</div>
-                    <div class="description"><span class="location">🌊 <a href="https://www.alltrails.com/trail/canada/alberta/sunwapta-falls" target="_blank" rel="noopener noreferrer">Sunwapta Falls</a></span> visit</div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span class="location">🌊 <a href="https://www.alltrails.com/trail/canada/alberta/sunwapta-falls" target="_blank" rel="noopener noreferrer">Sunwapta Falls</a></span> visit
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Sunwapta Falls Visit', '2025-06-29T14:30:00', '2025-06-29T15:00:00', 'Sunwapta Falls', 'Visit to Sunwapta Falls')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="activity">
                     <div class="time">3:30 PM</div>
-                    <div class="description"><span class="location">🧊 <a href="https://www.banffjaspercollection.com/attractions/columbia-icefield-adventure/tickets/" target="_blank" rel="noopener noreferrer">Columbia Icefield Adventure</a></span><br><span class="note">Epic 3-hour glacial experience</span></div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span class="location">🧊 <a href="https://www.banffjaspercollection.com/attractions/columbia-icefield-adventure/tickets/" target="_blank" rel="noopener noreferrer">Columbia Icefield Adventure</a></span>
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Columbia Icefield Adventure', '2025-06-29T15:30:00', '2025-06-29T18:30:00', 'Columbia Icefield', 'Epic 3-hour glacial experience at Columbia Icefield')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                        <span class="note">Epic 3-hour glacial experience</span>
+                    </div>
                 </div>
                 <div class="activity">
                     <div class="time">7:30 PM</div>
-                    <div class="description"><span class="location">🏔️ <a href="https://www.alltrails.com/trail/canada/alberta/peyto-lake-viewpoint" target="_blank" rel="noopener noreferrer">Peyto Lake</a></span> viewpoint</div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span class="location">🏔️ <a href="https://www.alltrails.com/trail/canada/alberta/peyto-lake-viewpoint" target="_blank" rel="noopener noreferrer">Peyto Lake</a></span> viewpoint
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Peyto Lake Viewpoint', '2025-06-29T19:30:00', '2025-06-29T20:00:00', 'Peyto Lake', 'Visit to Peyto Lake viewpoint')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="activity">
                     <div class="time">8:00 PM</div>
-                    <div class="description">🚗 Scenic drive to Banff Town</div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span>🚗 Scenic drive to Banff Town</span>
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Drive to Banff', '2025-06-29T20:00:00', '2025-06-29T21:30:00', 'Peyto Lake to Banff', 'Scenic drive to Banff Town')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="activity">
                     <div class="time">9:30 PM</div>
-                    <div class="description">🍽️ Dinner in beautiful Banff</div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span>🍽️ Dinner in beautiful Banff</span>
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Dinner in Banff', '2025-06-29T21:30:00', '2025-06-29T22:30:00', 'Banff', 'Dinner in beautiful Banff town')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="activity">
                     <div class="time">10:30 PM</div>
-                    <div class="description">🌙 Drive back to Calgary</div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span>🌙 Drive back to Calgary</span>
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Drive to Calgary', '2025-06-29T22:30:00', '2025-06-30T00:30:00', 'Banff to Calgary', 'Drive back to Calgary')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -433,11 +599,26 @@
             <div class="activities">
                 <div class="activity">
                     <div class="time">10:00 AM</div>
-                    <div class="description">😴 Relax and chill at home</div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span>😴 Relax and chill at home</span>
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Relax at Home', '2025-06-30T10:00:00', '2025-06-30T15:00:00', 'Calgary', 'Relax and chill at home')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="activity">
                     <div class="time">3:00 PM</div>
-                    <div class="description"><span class="location">🚣 <a href="https://www.paddlestation.ca/" target="_blank" rel="noopener noreferrer">Bow River Rafting</a></span> at Paddle Station<br><span class="note">Thrilling water adventure!</span></div>
+                    <div class="description">
+                        <div class="activity-actions">
+                            <span class="location">🚣 <a href="https://www.paddlestation.ca/" target="_blank" rel="noopener noreferrer">Bow River Rafting</a></span> at Paddle Station
+                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Bow River Rafting', '2025-06-30T15:00:00', '2025-06-30T18:00:00', 'Paddle Station', 'Thrilling water adventure at Bow River')">
+                                📅 Add to Calendar
+                            </button>
+                        </div>
+                        <span class="note">Thrilling water adventure!</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -447,18 +628,69 @@
             
             <div class="option-group">
                 <div class="option-title">Option 1: Canmore Mountain Experience</div>
-                <div class="option-item">🏔️ <a href="https://www.alltrails.com/trail/canada/alberta/grassi-lakes-interpretive-trail" target="_blank" rel="noopener noreferrer">Grassy Lakes Interpretive Trail</a> - Crystal clear mountain lakes</div>
-                <div class="option-item">🚶 <a href="https://www.alltrails.com/trail/canada/alberta/policemans-creek-boardwalk-trail" target="_blank" rel="noopener noreferrer">Policeman's Creek Boardwalk Trail</a> - Peaceful nature walk</div>
+                <div class="option-item">🏔️ <a href="https://www.alltrails.com/trail/canada/alberta/grassi-lakes-interpretive-trail" target="_blank" rel="noopener noreferrer">Grassy Lakes Interpretive Trail</a> - Crystal clear mountain lakes
+                    <button class="calendar-btn" onclick="createGoogleCalendarEvent('Grassy Lakes Trail', '2025-07-01T10:00:00', '2025-07-01T12:00:00', 'Grassy Lakes', 'Grassy Lakes Interpretive Trail - Crystal clear mountain lakes')">
+                        📅 Add to Calendar
+                    </button>
+                </div>
+                <div class="option-item">
+                    <div class="activity-actions">
+                        <span>🚶 <a href="https://www.alltrails.com/trail/canada/alberta/policemans-creek-boardwalk-trail" target="_blank" rel="noopener noreferrer">Policeman's Creek Boardwalk Trail</a></span> - Peaceful nature walk
+                        <button class="calendar-btn" onclick="createGoogleCalendarEvent('Policeman\'s Creek Trail', '2025-07-01T12:30:00', '2025-07-01T14:00:00', 'Policeman\'s Creek', 'Policeman\'s Creek Boardwalk Trail - Peaceful nature walk')">
+                            📅 Add to Calendar
+                        </button>
+                    </div>
+                </div>
                 <div class="option-item">🏘️ Explore charming Town of Canmore - Mountain town vibes</div>
             </div>
             
             <div class="option-group">
                 <div class="option-title">Option 2: Drumheller Dinosaur Discovery</div>
-                <div class="option-item">🦕 <a href="https://www.tyrrellmuseum.ca/" target="_blank" rel="noopener noreferrer">Royal Tyrrell Museum</a> - World-class dinosaur exhibits</div>
-                <div class="option-item">🏔️ <a href="https://www.alltrails.com/trail/canada/alberta/horse-thief-canyon-trail" target="_blank" rel="noopener noreferrer">Horse Thief Canyon Trail</a> - Badlands adventure</div>
-                <div class="option-item">🗿 <a href="https://www.alltrails.com/trail/canada/alberta/drumheller-hoodoos" target="_blank" rel="noopener noreferrer">Drumheller Hoodoos</a> - Unique geological formations</div>
+                <div class="option-item">🦕 <a href="https://www.tyrrellmuseum.ca/" target="_blank" rel="noopener noreferrer">Royal Tyrrell Museum</a> - World-class dinosaur exhibits
+                    <button class="calendar-btn" onclick="createGoogleCalendarEvent('Royal Tyrrell Museum', '2025-07-01T10:00:00', '2025-07-01T13:00:00', 'Royal Tyrrell Museum', 'Visit to Royal Tyrrell Museum - World-class dinosaur exhibits')">
+                        📅 Add to Calendar
+                    </button>
+                </div>
+                <div class="option-item">
+                    <div class="activity-actions">
+                        <span>🏔️ <a href="https://www.alltrails.com/trail/canada/alberta/horse-thief-canyon-trail" target="_blank" rel="noopener noreferrer">Horse Thief Canyon Trail</a></span> - Badlands adventure
+                        <button class="calendar-btn" onclick="createGoogleCalendarEvent('Horse Thief Canyon', '2025-07-01T13:30:00', '2025-07-01T15:00:00', 'Horse Thief Canyon', 'Horse Thief Canyon Trail - Badlands adventure')">
+                            📅 Add to Calendar
+                        </button>
+                    </div>
+                </div>
+                <div class="option-item">🗿 <a href="https://www.alltrails.com/trail/canada/alberta/drumheller-hoodoos" target="_blank" rel="noopener noreferrer">Drumheller Hoodoos</a> - Unique geological formations
+                    <button class="calendar-btn" onclick="createGoogleCalendarEvent('Drumheller Hoodoos', '2025-07-01T15:30:00', '2025-07-01T17:00:00', 'Drumheller Hoodoos', 'Visit to Drumheller Hoodoos - Unique geological formations')">
+                        📅 Add to Calendar
+                    </button>
+                </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function createGoogleCalendarEvent(title, startTime, endTime, location, description) {
+            const start = new Date(startTime);
+            const end = new Date(endTime);
+            
+            // Format dates for Google Calendar URL
+            const formatDate = (date) => {
+                return date.toISOString().replace(/-|:|\.\d+/g, '');
+            };
+            
+            const eventDetails = {
+                action: 'TEMPLATE',
+                text: title,
+                dates: `${formatDate(start)}/${formatDate(end)}`,
+                details: description,
+                location: location
+            };
+            
+            const baseUrl = 'https://calendar.google.com/calendar/render';
+            const params = new URLSearchParams(eventDetails);
+            
+            window.open(`${baseUrl}?${params.toString()}`, '_blank');
+        }
+    </script>
 </body>
 </html>
