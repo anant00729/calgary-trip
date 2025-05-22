@@ -65,7 +65,7 @@
         
         .header h1 {
             margin: 0;
-            font-size: clamp(2em, 5vw, 3em);
+            font-size: clamp(2.2em, 5vw, 2.8em);
             font-weight: 700;
             text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
             position: relative;
@@ -73,10 +73,12 @@
         }
         
         .header p {
-            margin: 15px 0 0 0;
-            font-size: clamp(1em, 3vw, 1.3em);
-            font-weight: 300;
-            opacity: 0.95;
+            margin: 10px 0 0 0;
+            font-size: clamp(1.15em, 3vw, 1.5em);
+            font-weight: 500;
+            opacity: 0.97;
+            color: #fffbe7;
+            letter-spacing: 0.01em;
             position: relative;
             z-index: 1;
         }
@@ -286,6 +288,23 @@
             left: 50%;
             animation-delay: -10s;
         }
+        
+        .weather {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+            font-size: 1em;
+            font-weight: 400;
+            color: #222;
+            background: rgba(255,255,255,0.7);
+            border-radius: 12px;
+            padding: 4px 12px;
+        }
+        .weather-icon {
+            width: 28px;
+            height: 28px;
+        }
     </style>
 </head>
 <body>
@@ -304,6 +323,7 @@
             <div class="day-header">
                 <div class="date">Friday, June 27, 2025</div>
                 <div class="day-name">✈️ Arrival Day</div>
+                <!-- <div class="weather" id="weather-0">Loading weather...</div> -->
             </div>
             <div class="activities">
                 <div class="activity">
@@ -322,6 +342,7 @@
             <div class="day-header">
                 <div class="date">Saturday, June 28, 2025</div>
                 <div class="day-name">🏔️ Lake Louise & Jasper Adventure</div>
+                <!-- <div class="weather" id="weather-1">Loading weather...</div> -->
             </div>
             <div class="activities">
                 <div class="activity">
@@ -403,6 +424,7 @@
             <div class="day-header">
                 <div class="date">Sunday, June 29, 2025</div>
                 <div class="day-name">🌊 Jasper Exploration & Return Journey</div>
+                <!-- <div class="weather" id="weather-2">Loading weather...</div> -->
             </div>
             <div class="activities">
                 <div class="activity">
@@ -493,13 +515,14 @@
             <div class="day-header">
                 <div class="date">Monday, June 30, 2025</div>
                 <div class="day-name">🏞️ Relaxation & River Adventure</div>
+                <!-- <div class="weather" id="weather-3">Loading weather...</div> -->
             </div>
             <div class="activities">
                 <div class="activity">
                     <div class="time">10:00 AM</div>
                     <div class="description">
                         <div class="activity-actions">
-                            <span>�� Relax and chill at home</span>
+                            <span>🏞️ Relax and chill at home</span>
                         </div>
                     </div>
                 </div>
@@ -544,5 +567,54 @@
             </div>
         </div>
     </div>
+    
+    <!--
+    <script>
+    // AccuWeather API integration
+    const ACCU_API_KEY = 'Uw38sDBm2ociUOoIY9BijAyyMgaye8b2';
+    const weatherDays = [
+      { date: '2025-05-30', city: 'Calgary', lat: 51.0447, lon: -114.0719 },
+      { date: '2025-05-22', city: 'Lake Louise', lat: 51.4254, lon: -116.1773 },
+      { date: '2025-05-22', city: 'Jasper', lat: 52.8734, lon: -118.0820 },
+      { date: '2025-05-30', city: 'Calgary', lat: 51.0447, lon: -114.0719 },
+    ];
+
+    const accuweatherIcons = {
+      1: '☀️', 2: '🌤️', 3: '⛅', 4: '⛅', 5: '☁️', 6: '☁️', 7: '☁️',
+      8: '🌫️', 11: '🌫️', 12: '🌦️', 13: '🌦️', 14: '🌦️', 15: '🌧️', 16: '🌧️', 17: '🌧️',
+      18: '🌧️', 19: '🌨️', 20: '🌨️', 21: '🌨️', 22: '🌨️', 23: '🌨️', 24: '🌨️',
+      25: '🌧️', 26: '🌧️', 29: '🌧️', 30: '⛈️', 31: '⛈️', 32: '🌧️', 33: '🌙', 34: '🌤️',
+      35: '⛅', 36: '☁️', 37: '☁️', 38: '🌫️', 39: '🌦️', 40: '🌦️', 41: '🌧️', 42: '🌧️', 43: '🌨️', 44: '🌨️'
+    };
+
+    function getAccuWeather(city, lat, lon, idx) {
+      // Step 1: Get location key
+      fetch(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${ACCU_API_KEY}&q=${lat},${lon}`)
+        .then(res => res.json())
+        .then(locData => {
+          if (!locData.Key) throw new Error('No location key');
+          // Step 2: Get daily forecast
+          // console.log(locData.Key);
+          return fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${locData.Key}?apikey=${ACCU_API_KEY}&details=true&metric=true`)
+            .then(res => res.json())
+            .then(forecast => {
+              const day = forecast.DailyForecasts[0];
+              const minTemp = Math.round(day.Temperature.Minimum.Value);
+              const maxTemp = Math.round(day.Temperature.Maximum.Value);
+              const rainProb = day.Day.PrecipitationProbability;
+              const icon = accuweatherIcons[day.Day.Icon] || '❓';
+              document.getElementById(`weather-${idx}`).innerHTML = `${icon} <span>${minTemp}&ndash;${maxTemp}&deg;C</span> <span style=\"color:#636e72;font-size:0.95em;\">Rain: ${rainProb}%</span> <span style=\"color:#636e72;font-size:0.95em;\">(${city})</span>`;
+            });
+        })
+        .catch(() => {
+          document.getElementById(`weather-${idx}`).innerHTML = 'Weather unavailable';
+        });
+    }
+
+    weatherDays.forEach((day, idx) => {
+      getAccuWeather(day.city, day.lat, day.lon, idx);
+    });
+    </script>
+    -->
 </body>
 </html>
