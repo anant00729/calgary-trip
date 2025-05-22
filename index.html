@@ -7,6 +7,12 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
         
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff9a9e 100%);
@@ -35,7 +41,7 @@
         .header {
             background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1);
             color: white;
-            padding: 40px;
+            padding: 40px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -59,7 +65,7 @@
         
         .header h1 {
             margin: 0;
-            font-size: 3em;
+            font-size: clamp(2em, 5vw, 3em);
             font-weight: 700;
             text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
             position: relative;
@@ -68,7 +74,7 @@
         
         .header p {
             margin: 15px 0 0 0;
-            font-size: 1.3em;
+            font-size: clamp(1em, 3vw, 1.3em);
             font-weight: 300;
             opacity: 0.95;
             position: relative;
@@ -89,40 +95,22 @@
         .day-header {
             background: linear-gradient(135deg, #74b9ff, #0984e3, #6c5ce7);
             color: white;
-            padding: 25px 35px;
-            font-size: 1.5em;
+            padding: 20px;
+            font-size: clamp(1.2em, 4vw, 1.5em);
             font-weight: 600;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 15px;
+            flex-direction: column;
+            gap: 10px;
         }
         
         .day-header .date {
-            flex: 1;
-            min-width: 200px;
+            font-size: 1em;
         }
         
         .day-header .day-name {
             font-size: 0.75em;
             opacity: 0.85;
             font-weight: 300;
-            margin-right: 15px;
-        }
-        
-        .day-header .calendar-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 10px 20px;
-            font-size: 0.9em;
-            white-space: nowrap;
-        }
-        
-        .day-header .calendar-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
         
         .activities {
@@ -131,56 +119,38 @@
         }
         
         .activity {
-            padding: 25px 35px;
+            padding: 20px;
             border-bottom: 1px solid rgba(0,0,0,0.05);
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            gap: 10px;
             transition: all 0.3s ease;
             position: relative;
         }
         
-        .activity::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, #ff6b6b, #4ecdc4);
-            transform: scaleY(0);
-            transition: transform 0.3s ease;
-        }
-        
-        .activity:hover {
-            background: linear-gradient(135deg, #f8f9ff, #e8f4fd);
-            transform: translateX(8px);
-            box-shadow: 0 8px 25px rgba(116, 185, 255, 0.15);
-        }
-        
-        .activity:hover::before {
-            transform: scaleY(1);
-        }
-        
-        .activity:last-child {
-            border-bottom: none;
+        @media (min-width: 768px) {
+            .activity {
+                flex-direction: row;
+                align-items: center;
+                gap: 20px;
+            }
         }
         
         .time {
             background: linear-gradient(135deg, #fd79a8, #e84393, #d63031);
             color: white;
-            padding: 12px 20px;
+            padding: 8px 15px;
             border-radius: 25px;
             font-weight: 600;
-            min-width: 130px;
+            min-width: 120px;
             text-align: center;
-            margin-right: 25px;
-            font-size: 0.95em;
+            font-size: 0.9em;
             box-shadow: 0 5px 15px rgba(253, 121, 168, 0.3);
         }
         
         .description {
             flex: 1;
-            font-size: 1.1em;
+            font-size: clamp(0.9em, 2.5vw, 1.1em);
             color: #2d3436;
             line-height: 1.6;
         }
@@ -194,13 +164,13 @@
         .note {
             color: #74b9ff;
             font-style: italic;
-            font-size: 0.95em;
+            font-size: 0.9em;
             font-weight: 300;
         }
         
         .options-section {
             background: linear-gradient(135deg, #ffecd2, #fcb69f, #ff9a9e);
-            padding: 40px;
+            padding: 30px 20px;
             position: relative;
             overflow: hidden;
         }
@@ -223,7 +193,7 @@
         
         .options-title {
             color: #d63031;
-            font-size: 1.5em;
+            font-size: clamp(1.2em, 4vw, 1.5em);
             font-weight: 700;
             margin-bottom: 25px;
             text-align: center;
@@ -235,25 +205,18 @@
         .option-group {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            padding: 25px;
+            padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.3);
             transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .option-group:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
         
         .option-title {
             color: #2d3436;
             font-weight: 600;
-            font-size: 1.2em;
+            font-size: clamp(1em, 3vw, 1.2em);
             margin-bottom: 15px;
             display: flex;
             align-items: center;
@@ -271,7 +234,7 @@
             border-left: 4px solid #74b9ff;
             padding-left: 20px;
             margin: 8px 0;
-            font-size: 1.05em;
+            font-size: clamp(0.9em, 2.5vw, 1.05em);
             transition: all 0.3s ease;
             border-radius: 0 10px 10px 0;
             background: linear-gradient(90deg, rgba(116, 185, 255, 0.05), transparent);
@@ -285,10 +248,17 @@
         
         /* Floating elements */
         .floating-element {
-            position: fixed;
-            pointer-events: none;
-            opacity: 0.1;
-            animation: floatingMove 15s linear infinite;
+            display: none; /* Hide on mobile */
+        }
+        
+        @media (min-width: 768px) {
+            .floating-element {
+                display: block;
+                position: fixed;
+                pointer-events: none;
+                opacity: 0.1;
+                animation: floatingMove 15s linear infinite;
+            }
         }
         
         @keyframes floatingMove {
@@ -316,48 +286,6 @@
             left: 50%;
             animation-delay: -10s;
         }
-        
-        .calendar-btn {
-            background: #4285f4;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9em;
-            margin-left: 15px;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .calendar-btn:hover {
-            background: #2b6cd4;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
-        }
-        
-        .activity-actions {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .options-section .calendar-btn {
-            margin: 0 auto 20px;
-            display: block;
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 12px 25px;
-            font-size: 1em;
-        }
-        
-        .options-section .calendar-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
     </style>
 </head>
 <body>
@@ -376,15 +304,6 @@
             <div class="day-header">
                 <div class="date">Friday, June 27, 2025</div>
                 <div class="day-name">✈️ Arrival Day</div>
-                <button class="calendar-btn" onclick="addDayToCalendar([
-                    {
-                        title: 'Arrival at Calgary',
-                        startTime: '2025-06-27T18:00:00',
-                        endTime: '2025-06-27T19:00:00',
-                        location: 'Calgary International Airport',
-                        description: 'Pick up 6-seater SUV and collect everyone from airport'
-                    }
-                ])">📅 Add Day to Calendar</button>
             </div>
             <div class="activities">
                 <div class="activity">
@@ -392,9 +311,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span class="location">🛬 Arrival at Calgary</span>
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Arrival at Calgary', '2025-06-27T18:00:00', '2025-06-27T19:00:00', 'Calgary International Airport', 'Pick up 6-seater SUV and collect everyone from airport')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                         <span class="note">Pick up 6-seater SUV and collect everyone from airport</span>
                     </div>
@@ -406,71 +322,6 @@
             <div class="day-header">
                 <div class="date">Saturday, June 28, 2025</div>
                 <div class="day-name">🏔️ Lake Louise & Jasper Adventure</div>
-                <button class="calendar-btn" onclick="addDayToCalendar([
-                    {
-                        title: 'Start from Calgary',
-                        startTime: '2025-06-28T08:00:00',
-                        endTime: '2025-06-28T09:00:00',
-                        location: 'Calgary',
-                        description: 'Departure for Lake Louise'
-                    },
-                    {
-                        title: 'Park and Ride - Lake Louise Shuttle',
-                        startTime: '2025-06-28T10:00:00',
-                        endTime: '2025-06-28T11:00:00',
-                        location: 'Lake Louise',
-                        description: 'Park and Ride - Lake Louise and Moraine Lake Bus Shuttle'
-                    },
-                    {
-                        title: 'Moraine Lake - Rockpile Trail',
-                        startTime: '2025-06-28T11:00:00',
-                        endTime: '2025-06-28T13:00:00',
-                        location: 'Moraine Lake',
-                        description: 'Rockpile Trail hiking at Moraine Lake'
-                    },
-                    {
-                        title: 'Lake Louise - Big Beehive Trail',
-                        startTime: '2025-06-28T13:00:00',
-                        endTime: '2025-06-28T18:00:00',
-                        location: 'Lake Louise',
-                        description: 'The Big Beehive Trail hiking at Lake Louise'
-                    },
-                    {
-                        title: 'Last Shuttle to Parking',
-                        startTime: '2025-06-28T18:00:00',
-                        endTime: '2025-06-28T18:30:00',
-                        location: 'Lake Louise',
-                        description: 'Last shuttle to parking lot'
-                    },
-                    {
-                        title: 'Break and Snacks',
-                        startTime: '2025-06-28T18:30:00',
-                        endTime: '2025-06-28T19:30:00',
-                        location: 'Lake Louise',
-                        description: 'Take a break and have snacks'
-                    },
-                    {
-                        title: 'Drive to Jasper',
-                        startTime: '2025-06-28T19:30:00',
-                        endTime: '2025-06-28T22:30:00',
-                        location: 'Lake Louise to Jasper',
-                        description: 'Drive from Lake Louise to Jasper'
-                    },
-                    {
-                        title: 'Arrival at Jasper',
-                        startTime: '2025-06-28T22:30:00',
-                        endTime: '2025-06-28T23:00:00',
-                        location: 'Jasper',
-                        description: 'Arrival at Jasper'
-                    },
-                    {
-                        title: 'Check-in at Jasper Downtown Hostel',
-                        startTime: '2025-06-28T23:00:00',
-                        endTime: '2025-06-29T00:00:00',
-                        location: 'Jasper Downtown Hostel',
-                        description: 'Check-in at Jasper Downtown Hostel'
-                    }
-                ])">📅 Add Day to Calendar</button>
             </div>
             <div class="activities">
                 <div class="activity">
@@ -478,9 +329,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span>🚗 Start from Calgary</span>
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Start from Calgary', '2025-06-28T08:00:00', '2025-06-28T09:00:00', 'Calgary', 'Departure for Lake Louise')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -489,9 +337,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span class="location">🚌 Park and Ride</span> - Lake Louise and Moraine Lake Bus Shuttle
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Park and Ride - Lake Louise Shuttle', '2025-06-28T10:00:00', '2025-06-28T11:00:00', 'Lake Louise', 'Park and Ride - Lake Louise and Moraine Lake Bus Shuttle')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -500,9 +345,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span class="location">💎 <a href="https://www.alltrails.com/trail/canada/alberta/rockpile" target="_blank" rel="noopener noreferrer">Moraine Lake</a></span> - Rockpile Trail hiking
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Moraine Lake - Rockpile Trail', '2025-06-28T11:00:00', '2025-06-28T13:00:00', 'Moraine Lake', 'Rockpile Trail hiking at Moraine Lake')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -511,9 +353,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span class="location">🏔️ <a href="https://www.alltrails.com/trail/canada/alberta/the-big-beehive-trail" target="_blank" rel="noopener noreferrer">Lake Louise</a></span> - The Big Beehive Trail
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Lake Louise - Big Beehive Trail', '2025-06-28T13:00:00', '2025-06-28T18:00:00', 'Lake Louise', 'The Big Beehive Trail hiking at Lake Louise')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -522,9 +361,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span>🚌 Last shuttle to parking lot</span>
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Last Shuttle to Parking', '2025-06-28T18:00:00', '2025-06-28T18:30:00', 'Lake Louise', 'Last shuttle to parking lot')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -533,9 +369,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span>☕ Break and snacks</span>
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Break and Snacks', '2025-06-28T18:30:00', '2025-06-28T19:30:00', 'Lake Louise', 'Take a break and have snacks')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -544,9 +377,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span>🚗 Drive to Jasper</span>
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Drive to Jasper', '2025-06-28T19:30:00', '2025-06-28T22:30:00', 'Lake Louise to Jasper', 'Drive from Lake Louise to Jasper')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -555,9 +385,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span>🏞️ Arrival at Jasper</span>
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Arrival at Jasper', '2025-06-28T22:30:00', '2025-06-28T23:00:00', 'Jasper', 'Arrival at Jasper')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -566,9 +393,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span>🏨 Check into <span class="location"><a href="https://surl.gd/cnjxlh" target="_blank" rel="noopener noreferrer">Jasper Downtown Hostel</a></span></span>
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Check-in at Jasper Downtown Hostel', '2025-06-28T23:00:00', '2025-06-29T00:00:00', 'Jasper Downtown Hostel', 'Check-in at Jasper Downtown Hostel')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -579,78 +403,6 @@
             <div class="day-header">
                 <div class="date">Sunday, June 29, 2025</div>
                 <div class="day-name">🌊 Jasper Exploration & Return Journey</div>
-                <button class="calendar-btn" onclick="addDayToCalendar([
-                    {
-                        title: 'Breakfast in Jasper',
-                        startTime: '2025-06-29T10:00:00',
-                        endTime: '2025-06-29T11:00:00',
-                        location: 'Jasper',
-                        description: 'Breakfast in Jasper town'
-                    },
-                    {
-                        title: 'Explore Jasper Town',
-                        startTime: '2025-06-29T11:00:00',
-                        endTime: '2025-06-29T12:00:00',
-                        location: 'Jasper',
-                        description: 'Explore charming Jasper town'
-                    },
-                    {
-                        title: 'Maligne Canyon Exploration',
-                        startTime: '2025-06-29T12:00:00',
-                        endTime: '2025-06-29T13:30:00',
-                        location: 'Maligne Canyon',
-                        description: 'Maligne Canyon exploration'
-                    },
-                    {
-                        title: 'Athabasca Falls Visit',
-                        startTime: '2025-06-29T14:00:00',
-                        endTime: '2025-06-29T14:30:00',
-                        location: 'Athabasca Falls',
-                        description: 'Visit to Athabasca Falls'
-                    },
-                    {
-                        title: 'Sunwapta Falls Visit',
-                        startTime: '2025-06-29T14:30:00',
-                        endTime: '2025-06-29T15:00:00',
-                        location: 'Sunwapta Falls',
-                        description: 'Visit to Sunwapta Falls'
-                    },
-                    {
-                        title: 'Columbia Icefield Adventure',
-                        startTime: '2025-06-29T15:30:00',
-                        endTime: '2025-06-29T18:30:00',
-                        location: 'Columbia Icefield',
-                        description: 'Epic 3-hour glacial experience at Columbia Icefield'
-                    },
-                    {
-                        title: 'Peyto Lake Viewpoint',
-                        startTime: '2025-06-29T19:30:00',
-                        endTime: '2025-06-29T20:00:00',
-                        location: 'Peyto Lake',
-                        description: 'Visit to Peyto Lake viewpoint'
-                    },
-                    {
-                        title: 'Drive to Banff',
-                        startTime: '2025-06-29T20:00:00',
-                        endTime: '2025-06-29T21:30:00',
-                        location: 'Peyto Lake to Banff',
-                        description: 'Scenic drive to Banff Town'
-                    },
-                    {
-                        title: 'Dinner in Banff',
-                        startTime: '2025-06-29T21:30:00',
-                        endTime: '2025-06-29T22:30:00',
-                        location: 'Banff',
-                        description: 'Dinner in beautiful Banff town'
-                    },
-                    {
-                        title: 'Drive to Calgary',
-                        startTime: '2025-06-29T22:30:00',
-                        endTime: '2025-06-30T00:30:00',
-                        location: 'Banff to Calgary',
-                        description: 'Drive back to Calgary'
-                    }
-                ])">📅 Add Day to Calendar</button>
             </div>
             <div class="activities">
                 <div class="activity">
@@ -658,9 +410,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span>🥞 Breakfast in town</span>
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Breakfast in Jasper', '2025-06-29T10:00:00', '2025-06-29T11:00:00', 'Jasper', 'Breakfast in Jasper town')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -669,9 +418,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span>🏘️ Explore charming Jasper town</span>
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Explore Jasper Town', '2025-06-29T11:00:00', '2025-06-29T12:00:00', 'Jasper', 'Explore charming Jasper town')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -680,9 +426,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span class="location">🌊 <a href="https://www.alltrails.com/trail/canada/alberta/maligne-canyon" target="_blank" rel="noopener noreferrer">Maligne Canyon</a></span> exploration
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Maligne Canyon Exploration', '2025-06-29T12:00:00', '2025-06-29T13:30:00', 'Maligne Canyon', 'Maligne Canyon exploration')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -691,9 +434,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span class="location">💧 <a href="https://www.alltrails.com/trail/canada/alberta/athabasca-falls" target="_blank" rel="noopener noreferrer">Athabasca Falls</a></span> visit
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Athabasca Falls Visit', '2025-06-29T14:00:00', '2025-06-29T14:30:00', 'Athabasca Falls', 'Visit to Athabasca Falls')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -702,9 +442,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span class="location">🌊 <a href="https://www.alltrails.com/trail/canada/alberta/sunwapta-falls" target="_blank" rel="noopener noreferrer">Sunwapta Falls</a></span> visit
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Sunwapta Falls Visit', '2025-06-29T14:30:00', '2025-06-29T15:00:00', 'Sunwapta Falls', 'Visit to Sunwapta Falls')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -713,9 +450,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span class="location">🧊 <a href="https://www.banffjaspercollection.com/attractions/columbia-icefield-adventure/tickets/" target="_blank" rel="noopener noreferrer">Columbia Icefield Adventure</a></span>
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Columbia Icefield Adventure', '2025-06-29T15:30:00', '2025-06-29T18:30:00', 'Columbia Icefield', 'Epic 3-hour glacial experience at Columbia Icefield')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                         <span class="note">Epic 3-hour glacial experience</span>
                     </div>
@@ -725,9 +459,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span class="location">🏔️ <a href="https://www.alltrails.com/trail/canada/alberta/peyto-lake-viewpoint" target="_blank" rel="noopener noreferrer">Peyto Lake</a></span> viewpoint
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Peyto Lake Viewpoint', '2025-06-29T19:30:00', '2025-06-29T20:00:00', 'Peyto Lake', 'Visit to Peyto Lake viewpoint')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -736,9 +467,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span>🚗 Scenic drive to Banff Town</span>
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Drive to Banff', '2025-06-29T20:00:00', '2025-06-29T21:30:00', 'Peyto Lake to Banff', 'Scenic drive to Banff Town')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -747,9 +475,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span>🍽️ Dinner in beautiful Banff</span>
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Dinner in Banff', '2025-06-29T21:30:00', '2025-06-29T22:30:00', 'Banff', 'Dinner in beautiful Banff town')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -758,9 +483,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span>🌙 Drive back to Calgary</span>
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Drive to Calgary', '2025-06-29T22:30:00', '2025-06-30T00:30:00', 'Banff to Calgary', 'Drive back to Calgary')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -771,32 +493,13 @@
             <div class="day-header">
                 <div class="date">Monday, June 30, 2025</div>
                 <div class="day-name">🏞️ Relaxation & River Adventure</div>
-                <button class="calendar-btn" onclick="addDayToCalendar([
-                    {
-                        title: 'Relax at Home',
-                        startTime: '2025-06-30T10:00:00',
-                        endTime: '2025-06-30T15:00:00',
-                        location: 'Calgary',
-                        description: 'Relax and chill at home'
-                    },
-                    {
-                        title: 'Bow River Rafting',
-                        startTime: '2025-06-30T15:00:00',
-                        endTime: '2025-06-30T18:00:00',
-                        location: 'Paddle Station',
-                        description: 'Thrilling water adventure at Bow River'
-                    }
-                ])">📅 Add Day to Calendar</button>
             </div>
             <div class="activities">
                 <div class="activity">
                     <div class="time">10:00 AM</div>
                     <div class="description">
                         <div class="activity-actions">
-                            <span>😴 Relax and chill at home</span>
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Relax at Home', '2025-06-30T10:00:00', '2025-06-30T15:00:00', 'Calgary', 'Relax and chill at home')">
-                                📅 Add to Calendar
-                            </button>
+                            <span>�� Relax and chill at home</span>
                         </div>
                     </div>
                 </div>
@@ -805,9 +508,6 @@
                     <div class="description">
                         <div class="activity-actions">
                             <span class="location">🚣 <a href="https://www.paddlestation.ca/" target="_blank" rel="noopener noreferrer">Bow River Rafting</a></span> at Paddle Station
-                            <button class="calendar-btn" onclick="createGoogleCalendarEvent('Bow River Rafting', '2025-06-30T15:00:00', '2025-06-30T18:00:00', 'Paddle Station', 'Thrilling water adventure at Bow River')">
-                                📅 Add to Calendar
-                            </button>
                         </div>
                         <span class="note">Thrilling water adventure!</span>
                     </div>
@@ -817,57 +517,14 @@
         
         <div class="options-section">
             <div class="options-title">🎯 Tuesday, July 1, 2025 - Choose Your Adventure</div>
-            <button class="calendar-btn" onclick="addDayToCalendar([
-                {
-                    title: 'Grassy Lakes Trail',
-                    startTime: '2025-07-01T10:00:00',
-                    endTime: '2025-07-01T12:00:00',
-                    location: 'Grassy Lakes',
-                    description: 'Grassy Lakes Interpretive Trail - Crystal clear mountain lakes'
-                },
-                {
-                    title: 'Policeman\'s Creek Trail',
-                    startTime: '2025-07-01T12:30:00',
-                    endTime: '2025-07-01T14:00:00',
-                    location: 'Policeman\'s Creek',
-                    description: 'Policeman\'s Creek Boardwalk Trail - Peaceful nature walk'
-                },
-                {
-                    title: 'Royal Tyrrell Museum',
-                    startTime: '2025-07-01T10:00:00',
-                    endTime: '2025-07-01T13:00:00',
-                    location: 'Royal Tyrrell Museum',
-                    description: 'Visit to Royal Tyrrell Museum - World-class dinosaur exhibits'
-                },
-                {
-                    title: 'Horse Thief Canyon',
-                    startTime: '2025-07-01T13:30:00',
-                    endTime: '2025-07-01T15:00:00',
-                    location: 'Horse Thief Canyon',
-                    description: 'Horse Thief Canyon Trail - Badlands adventure'
-                },
-                {
-                    title: 'Drumheller Hoodoos',
-                    startTime: '2025-07-01T15:30:00',
-                    endTime: '2025-07-01T17:00:00',
-                    location: 'Drumheller Hoodoos',
-                    description: 'Visit to Drumheller Hoodoos - Unique geological formations'
-                }
-            ])">📅 Add Day to Calendar</button>
             
             <div class="option-group">
                 <div class="option-title">Option 1: Canmore Mountain Experience</div>
                 <div class="option-item">🏔️ <a href="https://www.alltrails.com/trail/canada/alberta/grassi-lakes-interpretive-trail" target="_blank" rel="noopener noreferrer">Grassy Lakes Interpretive Trail</a> - Crystal clear mountain lakes
-                    <button class="calendar-btn" onclick="createGoogleCalendarEvent('Grassy Lakes Trail', '2025-07-01T10:00:00', '2025-07-01T12:00:00', 'Grassy Lakes', 'Grassy Lakes Interpretive Trail - Crystal clear mountain lakes')">
-                        📅 Add to Calendar
-                    </button>
                 </div>
                 <div class="option-item">
                     <div class="activity-actions">
                         <span>🚶 <a href="https://www.alltrails.com/trail/canada/alberta/policemans-creek-boardwalk-trail" target="_blank" rel="noopener noreferrer">Policeman's Creek Boardwalk Trail</a></span> - Peaceful nature walk
-                        <button class="calendar-btn" onclick="createGoogleCalendarEvent('Policeman\'s Creek Trail', '2025-07-01T12:30:00', '2025-07-01T14:00:00', 'Policeman\'s Creek', 'Policeman\'s Creek Boardwalk Trail - Peaceful nature walk')">
-                            📅 Add to Calendar
-                        </button>
                     </div>
                 </div>
                 <div class="option-item">🏘️ Explore charming Town of Canmore - Mountain town vibes</div>
@@ -876,76 +533,16 @@
             <div class="option-group">
                 <div class="option-title">Option 2: Drumheller Dinosaur Discovery</div>
                 <div class="option-item">🦕 <a href="https://www.tyrrellmuseum.ca/" target="_blank" rel="noopener noreferrer">Royal Tyrrell Museum</a> - World-class dinosaur exhibits
-                    <button class="calendar-btn" onclick="createGoogleCalendarEvent('Royal Tyrrell Museum', '2025-07-01T10:00:00', '2025-07-01T13:00:00', 'Royal Tyrrell Museum', 'Visit to Royal Tyrrell Museum - World-class dinosaur exhibits')">
-                        📅 Add to Calendar
-                    </button>
                 </div>
                 <div class="option-item">
                     <div class="activity-actions">
                         <span>🏔️ <a href="https://www.alltrails.com/trail/canada/alberta/horse-thief-canyon-trail" target="_blank" rel="noopener noreferrer">Horse Thief Canyon Trail</a></span> - Badlands adventure
-                        <button class="calendar-btn" onclick="createGoogleCalendarEvent('Horse Thief Canyon', '2025-07-01T13:30:00', '2025-07-01T15:00:00', 'Horse Thief Canyon', 'Horse Thief Canyon Trail - Badlands adventure')">
-                            📅 Add to Calendar
-                        </button>
                     </div>
                 </div>
                 <div class="option-item">🗿 <a href="https://www.alltrails.com/trail/canada/alberta/drumheller-hoodoos" target="_blank" rel="noopener noreferrer">Drumheller Hoodoos</a> - Unique geological formations
-                    <button class="calendar-btn" onclick="createGoogleCalendarEvent('Drumheller Hoodoos', '2025-07-01T15:30:00', '2025-07-01T17:00:00', 'Drumheller Hoodoos', 'Visit to Drumheller Hoodoos - Unique geological formations')">
-                        📅 Add to Calendar
-                    </button>
                 </div>
             </div>
         </div>
     </div>
-
-    <script>
-        function createGoogleCalendarEvent(title, startTime, endTime, location, description) {
-            const start = new Date(startTime);
-            const end = new Date(endTime);
-            
-            // Format dates for Google Calendar URL
-            const formatDate = (date) => {
-                return date.toISOString().replace(/-|:|\.\d+/g, '');
-            };
-            
-            const eventDetails = {
-                action: 'TEMPLATE',
-                text: title,
-                dates: `${formatDate(start)}/${formatDate(end)}`,
-                details: description,
-                location: location
-            };
-            
-            const baseUrl = 'https://calendar.google.com/calendar/render';
-            const params = new URLSearchParams(eventDetails);
-            
-            window.open(`${baseUrl}?${params.toString()}`, '_blank');
-        }
-
-        function addDayToCalendar(dayEvents) {
-            // Open the first event
-            const firstEvent = dayEvents[0];
-            createGoogleCalendarEvent(
-                firstEvent.title,
-                firstEvent.startTime,
-                firstEvent.endTime,
-                firstEvent.location,
-                firstEvent.description
-            );
-
-            // Schedule the rest of the events to open after a short delay
-            for (let i = 1; i < dayEvents.length; i++) {
-                setTimeout(() => {
-                    const event = dayEvents[i];
-                    createGoogleCalendarEvent(
-                        event.title,
-                        event.startTime,
-                        event.endTime,
-                        event.location,
-                        event.description
-                    );
-                }, i * 1000); // 1 second delay between each event
-            }
-        }
-    </script>
 </body>
 </html>
