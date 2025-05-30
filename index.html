@@ -226,6 +226,30 @@
             border-radius: 4px;
         }
 
+        .footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 25px 30px;
+            font-size: 1.1em;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border-top: 3px solid rgba(255,255,255,0.2);
+            margin-top: 0;
+        }
+
+        .footer .heart {
+            color: #ff6b6b;
+            font-size: 1.2em;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 10px;
@@ -361,6 +385,11 @@
                 font-size: 1.1em;
                 line-height: 1.3;
             }
+
+            .footer {
+                padding: 20px 15px;
+                font-size: 1em;
+            }
         }
     </style>
 </head>
@@ -368,7 +397,7 @@
     <div class="container">
         <div class="header">
             <h1>🏔️ Canadian Rockies Adventure</h1>
-            <p>June 27 - July 1, 2025 | Calgary & Surrounding Areas</p>
+            <p>June 25 - July 1, 2025 | Calgary & Surrounding Areas</p>
         </div>
 
         <div class="legend">
@@ -398,7 +427,7 @@
             <!-- Day 1 -->
             <div class="day-card day-1">
                 <div class="day-header">
-                    Friday, June 27th
+                    Wednesday, June 25th
                 </div>
                 <div class="activities">
                     <div class="activity travel">
@@ -421,21 +450,20 @@
                 </div>
                 <div class="activities">
                     <div class="activity travel">
-                        <div class="time">8:00 AM</div>
+                        <div class="time">6:00 AM</div>
                         <div class="description">
-                            <strong>🚗 Depart Calgary</strong>
-                            <small>Start journey to Banff National Park</small>
+                            <strong>🚗 Start from Calgary</strong>
                         </div>
                     </div>
                     <div class="activity travel">
-                        <div class="time">10:00 AM</div>
+                        <div class="time">8:30 AM</div>
                         <div class="description">
                             <strong>🚌 Park and Ride</strong>
                             <small>Lake Louise and Moraine Lake Bus Shuttle</small>
                         </div>
                     </div>
                     <div class="activity attraction">
-                        <div class="time">11:00 AM</div>
+                        <div class="time">10:00 AM</div>
                         <div class="description">
                             <strong>🏔️ Moraine Lake (Rockpile Trail)</strong>
                             <small>Iconic turquoise lake with mountain backdrop</small>
@@ -443,41 +471,41 @@
                         </div>
                     </div>
                     <div class="activity attraction">
-                        <div class="time">1:00 PM</div>
+                        <div class="time">11:00 AM</div>
                         <div class="description">
-                            <strong>🥾 Lake Louise (The Big Beehive)</strong>
+                            <strong>🥾 Lake Louise (Devil's Thumb)</strong>
                             <small>Challenging hike with panoramic views</small>
-                            <a href="https://www.alltrails.com/trail/canada/alberta/the-big-beehive-trail" class="link" target="_blank">Trail Info</a>
+                            <a href="https://www.alltrails.com/trail/canada/alberta/devils-thumb-via-lake-agnes-trail" class="link" target="_blank">Trail Info</a>
                         </div>
                     </div>
                     <div class="activity travel">
-                        <div class="time">6:00 PM</div>
+                        <div class="time">5:00 PM</div>
                         <div class="description">
                             <strong>🚌 Last shuttle to parking lot</strong>
                         </div>
                     </div>
                     <div class="activity food">
-                        <div class="time">6:30 PM</div>
+                        <div class="time">5:30 PM</div>
                         <div class="description">
                             <strong>☕ Break and snacks</strong>
                             <small>Rest and refuel before the drive</small>
                         </div>
                     </div>
                     <div class="activity travel">
-                        <div class="time">7:30 PM</div>
+                        <div class="time">6:30 PM</div>
                         <div class="description">
                             <strong>🚗 Drive to Jasper</strong>
-                            <small>Scenic Icefields Parkway (3-hour drive)</small>
+                            <small>Scenic Icefields Parkway</small>
                         </div>
                     </div>
                     <div class="activity travel">
-                        <div class="time">10:30 PM</div>
+                        <div class="time">9:30 PM</div>
                         <div class="description">
                             <strong>📍 Arrival at Jasper</strong>
                         </div>
                     </div>
                     <div class="activity accommodation">
-                        <div class="time">11:00 PM</div>
+                        <div class="time">10:00 PM</div>
                         <div class="description">
                             <strong>🏨 Check into Jasper Downtown Hostel</strong>
                             <a href="https://surl.gd/cnjxlh" class="link" target="_blank">Booking Details</a>
@@ -533,7 +561,7 @@
                     <div class="activity attraction">
                         <div class="time">3:30 PM</div>
                         <div class="description">
-                            <strong>🧊 Columbia Icefield Adventure</strong>
+                            <strong>🧊 Columbia Icefield</strong>
                             <small>Ice Explorer and Skywalk experience</small>
                             <a href="https://www.banffjaspercollection.com/attractions/columbia-icefield-adventure/tickets/" class="link" target="_blank">Tickets</a>
                         </div>
@@ -541,30 +569,23 @@
                     <div class="activity attraction">
                         <div class="time">7:30 PM</div>
                         <div class="description">
-                            <strong>🏔️ Peyto Lake Viewpoint</strong>
+                            <strong>🏔️ Peyto Lake</strong>
                             <small>Wolf-shaped turquoise lake</small>
                             <a href="https://www.alltrails.com/trail/canada/alberta/peyto-lake-viewpoint" class="link" target="_blank">Trail Info</a>
                         </div>
                     </div>
-                    <div class="activity travel">
-                        <div class="time">8:00 PM</div>
+                    <div class="activity attraction">
+                        <div class="time">9:00 PM</div>
                         <div class="description">
-                            <strong>🚗 Drive to Banff Town</strong>
-                            <small>Scenic drive through the Rockies</small>
+                            <strong>🏞️ Emerald Lake</strong>
+                            <small>Beautiful emerald-colored lake</small>
+                            <a href="https://www.alltrails.com/trail/canada/british-columbia/emerald-lake-loop" class="link" target="_blank">Trail Info</a>
                         </div>
                     </div>
-                    <div class="activity food">
+                    <div class="activity accommodation">
                         <div class="time">9:30 PM</div>
                         <div class="description">
-                            <strong>🍽️ Dinner in Banff</strong>
-                            <small>Enjoy local cuisine in Banff townsite</small>
-                        </div>
-                    </div>
-                    <div class="activity travel">
-                        <div class="time">10:30 PM</div>
-                        <div class="description">
-                            <strong>🚗 Drive to Calgary</strong>
-                            <small>Return journey (1.5-hour drive)</small>
+                            <strong>🏨 Rocky Mountain Ski Lodge, Canmore</strong>
                         </div>
                     </div>
                 </div>
@@ -576,80 +597,100 @@
                     Monday, June 30th
                 </div>
                 <div class="activities">
-                    <div class="activity food">
-                        <div class="time">10:00 AM</div>
+                    <div class="activity travel">
+                        <div class="time">9:00 AM</div>
                         <div class="description">
-                            <strong>☕ Relax and chill at home</strong>
-                            <small>Recovery time after the mountain adventure</small>
+                            <strong>🚗 Drive to Banff Town</strong>
                         </div>
                     </div>
                     <div class="activity attraction">
-                        <div class="time">3:00 PM</div>
+                        <div class="time">10:30 AM</div>
                         <div class="description">
-                            <strong>🚣 Bow River Rafting</strong>
-                            <small>Adventure rafting experience</small>
-                            <a href="https://www.paddlestation.ca/" class="link" target="_blank">Paddle Station</a>
+                            <strong>🚣 Lake Minnewanka Loop Boat Tour</strong>
+                            <small>Scenic boat tour on the largest lake in Banff</small>
+                            <a href="https://www.banffjaspercollection.com/attractions/lake-minnewanka-cruise/location-hours/" class="link" target="_blank">Tour Info</a>
+                        </div>
+                    </div>
+                    <div class="activity food">
+                        <div class="time">1:00 PM</div>
+                        <div class="description">
+                            <strong>🍽️ Explore Banff Town and Lunch</strong>
+                            <small>Enjoy local cuisine in Banff townsite</small>
+                        </div>
+                    </div>
+                    <div class="activity attraction">
+                        <div class="time">4:00 PM</div>
+                        <div class="description">
+                            <strong>🏞️ Grassy Lakes</strong>
+                            <small>Beautiful turquoise lakes with waterfall</small>
+                            <a href="https://www.alltrails.com/trail/canada/alberta/grassi-lakes-interpretive-trail" class="link" target="_blank">Trail Info</a>
+                        </div>
+                    </div>
+                    <div class="activity travel">
+                        <div class="time">6:30 PM</div>
+                        <div class="description">
+                            <strong>🚗 Drive to Calgary</strong>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Options Section for Day 5 -->
+            <!-- Day 5 -->
+            <div class="day-card day-5">
+                <div class="day-header">
+                    Tuesday, July 1st
+                </div>
+                <div class="activities">
+                    <div class="note">
+                        💡 Day kept open for flexibility and relaxation
+                    </div>
+                </div>
+            </div>
+
+            <!-- Route Maps Section -->
             <div class="options-section">
                 <div class="options-header">
-                    Tuesday, July 1st - Choose Your Adventure
+                    🗺️ Route Maps
                 </div>
                 <div class="options-content">
                     <div class="option">
-                        <h4>🏔️ Option 1: Visit Canmore</h4>
+                        <h4>June 28th - Calgary to Jasper</h4>
                         <div class="activity optional">
                             <div class="description">
-                                <strong>🏞️ Grassi Lakes Interpretive Trail</strong>
-                                <small>Beautiful turquoise lakes with waterfall</small>
-                                <a href="https://www.alltrails.com/trail/canada/alberta/grassi-lakes-interpretive-trail" class="link" target="_blank">Trail Info</a>
-                            </div>
-                        </div>
-                        <div class="activity optional">
-                            <div class="description">
-                                <strong>🌊 Policeman's Creek Boardwalk</strong>
-                                <small>Easy boardwalk through wetlands</small>
-                                <a href="https://www.alltrails.com/trail/canada/alberta/policemans-creek-boardwalk-trail" class="link" target="_blank">Trail Info</a>
-                            </div>
-                        </div>
-                        <div class="activity optional">
-                            <div class="description">
-                                <strong>🏘️ Explore Canmore Town</strong>
-                                <small>Charming mountain town with local shops</small>
+                                <strong>🚗 Complete Route</strong>
+                                <small>Calgary → Lake Louise → Moraine Lake → Jasper</small>
+                                <a href="https://shorturl.at/2DJxt" class="link" target="_blank">View Route</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="option">
-                        <h4>🦕 Option 2: Drumheller (Dinosaur Country)</h4>
+                        <h4>June 29th - Jasper to Canmore</h4>
                         <div class="activity optional">
                             <div class="description">
-                                <strong>🦴 Royal Tyrrell Museum</strong>
-                                <small>World-renowned paleontology museum</small>
-                                <a href="https://www.tyrrellmuseum.ca/" class="link" target="_blank">Museum Website</a>
+                                <strong>🚗 Complete Route</strong>
+                                <small>Jasper → Maligne Canyon → Columbia Icefield → Canmore</small>
+                                <a href="https://shorturl.at/0gsyw" class="link" target="_blank">View Route</a>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="option">
+                        <h4>June 30th - Canmore to Calgary</h4>
                         <div class="activity optional">
                             <div class="description">
-                                <strong>🏔️ Horse Thief Canyon Trail</strong>
-                                <small>Badlands scenery and unique rock formations</small>
-                                <a href="https://www.alltrails.com/trail/canada/alberta/horse-thief-canyon-trail" class="link" target="_blank">Trail Info</a>
-                            </div>
-                        </div>
-                        <div class="activity optional">
-                            <div class="description">
-                                <strong>🗿 Drumheller Hoodoos</strong>
-                                <small>Iconic sandstone pillars</small>
-                                <a href="https://www.alltrails.com/trail/canada/alberta/drumheller-hoodoos" class="link" target="_blank">Trail Info</a>
+                                <strong>🚗 Complete Route</strong>
+                                <small>Canmore → Banff → Lake Minnewanka → Calgary</small>
+                                <a href="https://shorturl.at/Imv5F" class="link" target="_blank">View Route</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="footer">
+            Made with <span class="heart">❤️</span> By Anant
         </div>
     </div>
 </body>
